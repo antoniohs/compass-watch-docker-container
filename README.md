@@ -11,43 +11,40 @@ It's intended to be left running on your development machine, so everytime somet
 First, you need to configure your folders in a __config.rb__ file, placed on the sass root folder. Here's an example folder structure, and its corresponding __config.rb__ file.
 
 _Folder structure_:
-```
-/src
-  /compass
-    /sass
-    config.rb
-  /app
-  /public
-    /css
-```
+
+    /src
+      /compass
+        /sass
+        config.rb
+      /app
+      /public
+        /css
 
 _config.rb file_:
-```
-# Require any additional compass plugins here.
 
-#Folder settings
-css_dir = "../public/css"          #where the CSS will saved
-sass_dir = "sass"           #where our .scss files are
-images_dir = "../public/img"    #the folder with your images
-
-# You can select your preferred output style here (can be overridden via the command line):
-output_style = :expanded # After dev :compressed
-
-# To disable debugging comments that display the original location of your selectors. Uncomment:
-line_comments = true
-
-# Obviously
-preferred_syntax = :scss
-```
+    # Require any additional compass plugins here.
+    
+    #Folder settings
+    css_dir = "../public/css"          #where the CSS will saved
+    sass_dir = "sass"           #where our .scss files are
+    images_dir = "../public/img"    #the folder with your images
+    
+    # You can select your preferred output style here (can be overridden via the command line):
+    output_style = :expanded # After dev :compressed
+    
+    # To disable debugging comments that display the original location of your selectors. Uncomment:
+    line_comments = true
+    
+    # Obviously
+    preferred_syntax = :scss
 
 ### Using _docker run_
-```docker run -d -v /src/compass:/src antonienko/compass-watch watch /src/compass```
+    docker run -d -v /src:/src antonienko/compass-watch watch /src/compass
 
 ### Using _docker compose_
-```
-compass:
-  build: antonienko/compass-watch
-  command: watch /src/compass
-  volumes:
-    - /var/www:/src
-```
+
+    compass:
+      build: antonienko/compass-watch
+      command: watch /src/compass
+      volumes:
+        - /src:/src
