@@ -39,12 +39,12 @@ _config.rb file_:
     preferred_syntax = :scss
 
 ### Using _docker run_
-    docker run -d -v /src:/src antonienko/compass-watch watch /src/compass
+    docker run -d -v /src:/src antonienko/compass-watch watch --poll /src/compass
 
 ### Using _docker compose_
 
     compass:
       build: antonienko/compass-watch
-      command: watch /src/compass
+      command: watch --poll /src/compass
       volumes:
         - /src:/src
