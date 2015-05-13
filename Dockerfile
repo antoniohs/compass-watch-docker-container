@@ -7,6 +7,7 @@ RUN apt-get update && apt-get install -y \
 
 RUN gem install listen
 RUN gem install compass
+RUN gem install compass-core
 
 VOLUME /src
 
